@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <conio.h>
 
 void exercise01() {
     /* read 5 values and print sum (only 2 variables) */
@@ -127,8 +128,49 @@ void exercise06() {
     }
 }
 
-void exercise07() {
+void exercises07and08() {
+    /* grades calculator */
 
+    printf("Exercises 07 and 08 - Grades calculator\n");
+
+    float grade01, grade02, grade03;
+    int studentCounter = 1;
+    char option;
+
+    float greaterAverage = 0, grade01Max = 0, grade02Max = 0, grade03Max = 0;
+
+    do {
+        option = 's';
+
+        printf("\n[Student %d] Provide AP1 AP2 AP3 grades:\n", studentCounter);
+        scanf("%f %f %f", &grade01, &grade02, &grade03);
+
+        printf("Want to provide another student grades?\n");
+
+        while (option != 'n' && option != 'y') {
+            printf("(y - yes | n - no) : ");
+            option = getch();
+        }
+
+        float average = (grade01 + grade02 + grade03) / 3.0;
+        if (greaterAverage < average)
+            greaterAverage = average;
+
+        if (grade01Max < grade01)
+            grade01Max = grade01;
+        if (grade02Max < grade02)
+            grade02Max = grade02;
+        if (grade03Max < grade03)
+            grade03Max = grade03;
+
+        studentCounter++;
+    } while(option == 'y');
+
+    printf("\n");
+    printf("\nGreater average: %.2f", greaterAverage);
+    printf("\nGreater grade 01: %.2f", grade01);
+    printf("\nGreater grade 02: %.2f", grade02);
+    printf("\nGreater grade 03: %.2f", grade03);
 }
 
 int main() {
@@ -138,8 +180,7 @@ int main() {
 //    exercise04();
 //    exercise05();
 //    exercise06();
-    exercise07();
-//    exercise08();
+    exercises07and08();
 
     return 0;
 }
