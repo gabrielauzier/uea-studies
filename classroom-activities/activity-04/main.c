@@ -107,6 +107,89 @@ void exercise06() {
     sum == num ? printf("%d is perfect\n", num) : printf("%d is not perfect\n", num);
 }
 
+void exercise07() {
+    /* radioactive material */
+
+    const int DECAY_RATE = 50;
+    int time = 0;
+    float mass;
+    printf("Digit the initial mass:\n");
+    scanf("%f", &mass);
+
+    printf("Initial mass = %.2f g\n", mass);
+
+    while (mass >= 0.5) {
+        mass /= 2;
+        time += DECAY_RATE;
+    }
+
+    printf("Final mass = %.2f g\n", mass);
+    int hour, min, sec;
+    hour = time / 3600;
+    min = (time % 3600) / 60;
+    sec = (time % 3600) % 60;
+
+    printf("Total time = %02d:%02d:%02d\n", hour, min, sec);
+}
+
+void exercise08() {
+    /* rectangle triangle */
+
+    int n;
+    printf("Digit (n) value:\n");
+    scanf("%d", &n);
+
+    int a = 1, b = 1, c;
+
+    for (int i = 1; i <= n; i++, a = 1, b = 1) {
+        c = i * i;
+
+        while (a < n) {
+            while (b < n) {
+                int hip = a * a + b * b;
+                if (c == hip) {
+                    printf("%d ", i);
+                    a = n;
+                    break;
+                }
+                b++;
+            }
+            a++;
+            b = a;
+        }
+    }
+}
+
+void exercise09() {
+    /* max values */
+
+    int n, m;
+    printf("Digit (n) and (m) values:\n");
+    scanf("%d %d", &n, &m);
+
+    int x = 0, y = 0, max = 0;
+    int maxX = x, maxY = y;
+
+    while (x <= m) {
+        while (y <= n) {
+
+            int aux = x * y - x * x + y;
+            if (max < aux) {
+                max = aux;
+                maxX = x;
+                maxY = y;
+            }
+
+            y++;
+        }
+
+        x++;
+        y = 1;
+    }
+
+    printf("Max = %d\nx = %d\ny = %d\n", max, maxX, maxY);
+}
+
 void exercise10() {
     /* n³ problem */
     int num;
@@ -134,6 +217,9 @@ int main() {
 //    exercise04();
 //    exercise05();
 //    exercise06();
+//    exercise07();
+//    exercise08();
+    exercise09();
 //    exercise10();
 
     return 0;
