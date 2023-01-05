@@ -184,7 +184,7 @@ void exercise09() {
         }
 
         x++;
-        y = 1;
+        y = 0;
     }
 
     printf("Max = %d\nx = %d\ny = %d\n", max, maxX, maxY);
@@ -211,16 +211,16 @@ void exercise10() {
 }
 
 int main() {
-//    exercise01();
-//    exercise02();
-//    exercise03();
-//    exercise04();
-//    exercise05();
-//    exercise06();
-//    exercise07();
-//    exercise08();
+    exercise01();
+    exercise02();
+    exercise03();
+    exercise04();
+    exercise05();
+    exercise06();
+    exercise07();
+    exercise08();
     exercise09();
-//    exercise10();
+    exercise10();
 
     return 0;
 }
