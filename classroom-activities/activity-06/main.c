@@ -105,13 +105,55 @@ void exercise04() {
 
 }
 
+/* Exercise 05 */
+int binToDecimal(long long n) {
+    int dec = 0, i = 0, rem;
+
+    while (n!=0) {
+        rem = n % 10;
+        n /= 10;
+        dec += rem * pow(2, i);
+        ++i;
+    }
+
+    return dec;
+}
+
+void exercise05() {
+    long long bin;
+    scanf("%lld", &bin);
+    printf("Decimal = %d\n", binToDecimal(bin));
+}
+
+/* Exercise 06 */
+long long decimalToBin(int n) {
+    long long bin = 0;
+    int rem, i = 1;
+
+    while (n!=0) {
+        rem = n % 2;
+        n /= 2;
+        bin += rem * i;
+        i *= 10;
+    }
+
+    return bin;
+}
+
+void exercise06() {
+    int dec;
+    scanf("%d", &dec);
+    printf("Binary = %lld\n", decimalToBin(dec));
+}
+
 int main() {
 
-//    exercise01();
-//    exercise02();
-//    exercise03();
-//    exercise04();
-//    exercise05();
+    exercise01();
+    exercise02();
+    exercise03();
+    exercise04();
+    exercise05();
+    exercise06();
 
     return 0;
 }
