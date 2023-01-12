@@ -80,7 +80,7 @@ int numContainsInFinal(int x, int y) {
 
 void exercise03() {
     int x, y, isWithin = 0;
-    printf("Ex 3;\n");
+    printf("Ex 03:\n");
     scanf("%d %d", &x, &y);
 
     int greater, lowest;
@@ -102,7 +102,13 @@ void exercise03() {
 
 /* Exercise 04 */
 void exercise04() {
+    int x, y;
+    printf("Ex 04:");
+    scanf("%d %d", &x, &y);
 
+    int result = numContains(y, x);
+
+    result == 1 ? printf("%d is segment of %d", x, y) : printf("%d is not segment of %d", x, y);
 }
 
 /* Exercise 05 */
