@@ -175,7 +175,7 @@ void concatStrings(char *string1, char *string2) {
     }
 
     for (int k = 0; k < len2; k++, i++) {
-        newString[k] = string2[i];
+        newString[i] = string2[k];
     }
 
     printf("\nConcat = %s", newString);
