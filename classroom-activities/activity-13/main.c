@@ -41,7 +41,7 @@ int * find_one(int *Crawler, int *End, int target) {
 }
 
 void exercise02() {
-    IntVector vector = { 1, 2, 3, 4, 5, 2, 6, 2, 7, 8};
+    IntVector vector = { 2, 2, 3, 4, 5, 2, 6, 2, 7, 8};
 
     int *crawler = vector;
 
@@ -58,17 +58,18 @@ void exercise02() {
     puts("");
 
     while (1) {
-        crawler = find_one(++crawler, &vector[9], 2);
+        crawler = find_one(crawler, &vector[9], 2);
 
         if (!crawler) break;
 
+        crawler++;
         printf("found & = %p\n", crawler);
     }
 }
 
 int main() {
 
-    exercise01();
+//    exercise01();
     exercise02();
 
     return 0;

@@ -17,11 +17,7 @@ float calculate_average(float * src, int n) {
     for (int i = 0; i < n; i++) {
         sum += src[i];
     }
-
-    float avg = sum / (1.0 * n);
-    printf("\naverage = %.2f", avg);
-
-    return avg;
+    return sum / (1.0 * n);
 }
 
 float calculate_standard_deviation(float * src, int n) {
@@ -33,6 +29,11 @@ float calculate_standard_deviation(float * src, int n) {
     return sqrt(sum / (1.0 * n));
 }
 
+void set_values(int n, float * src, float * avg, float * dev) {
+    *avg = calculate_average(src, n);
+    *dev = calculate_standard_deviation(src, n);
+}
+
 int main() {
     int students = 5;
 
@@ -40,8 +41,11 @@ int main() {
 
     scan(grades, students);
 
-    const float dev = calculate_standard_deviation(grades, students);
+    float avg, dev;
 
+    set_values(students, grades, &avg, &dev);
+
+    printf("\ntotal average = %.2f", avg);
     printf("\nstandard deviation = %.2f", dev);
 
     free(grades);
