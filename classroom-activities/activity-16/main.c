@@ -69,12 +69,16 @@ int * create_matrix(int m, int n) {
 }
 
 double ** create_matrix_2(int rows, int cols) {
-    double ** matrix = (double **) malloc(sizeof (double *) * rows);
+    double ** matrix = (double **) malloc(rows * sizeof (double *));
     for (int i = 0; i < rows; i++)
-        matrix[i] = (double *) malloc(sizeof (double) * cols);
+        matrix[i] = (double *) malloc(cols * sizeof (double));
 
     return matrix;
 }
+
+//void init_matrix(double ** matrix, int rows, int cols) {
+//
+//}
 
 void scan_matrix(double ** matrix, int rows, int cols) {
     title("Scan");
@@ -90,7 +94,7 @@ void print_matrix_formatted(double ** matrix, int rows, int cols) {
     title("Matrix formatted");
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            printf("(%5.1lf) ", matrix[i][j]);
+            printf("(%5.1lf) ", *(*(matrix + i) + j));
         }
         line();
     }
@@ -99,7 +103,7 @@ void print_matrix_formatted(double ** matrix, int rows, int cols) {
 void print_matrix_2(double ** matrix, int rows, int cols) {
     title("Matrix 2.0");
     for (int i = 0; i < rows * cols; i++) {
-        printf("%-5.1lf | %d", **matrix, *matrix);
+        printf("%-5.1lf | %u", **matrix, *matrix);
         line();
 
         if ((i + 1) % cols == 0) {
@@ -111,18 +115,43 @@ void print_matrix_2(double ** matrix, int rows, int cols) {
     }
 }
 
+double ** sum_matrices(double **matrix1, double **matrix2, int rows, int cols) {
+    double ** result = create_matrix_2(rows, cols);
+
+    title("Sum matrices");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            result[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
+    }
+
+    return result;
+}
+
 void exercise02() {
     int m = 3, n = 2;
 
+    /* part 1 */
     double ** matrix = create_matrix_2(m, n);
 
     scan_matrix(matrix, m, n);
     print_matrix_formatted(matrix, m, n);
-    print_matrix_2(matrix, m, n);
+//    print_matrix_2(matrix, m, n);
+
+    /* part 2 */
+    double ** matrix_2 = create_matrix_2(m, n);
+
+    scan_matrix(matrix_2, m, n);
+    print_matrix_formatted(matrix_2, m, n);
+//    print_matrix_2(matrix_2, m, n);
+
+    double ** result = sum_matrices(matrix, matrix_2, m, n);
+
+    print_matrix_formatted(result, m, n);
 }
 
 int main() {
-    exercise01();
+//    exercise01();
     exercise02();
 
     return 0;
