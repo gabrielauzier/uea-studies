@@ -11,4 +11,4 @@
 7.  Em uma disciplina com três exercícios, um professor deseja saber qual a maior e a menor nota de cada exercício e qual a maior e a menor média final. Faça um programa para auxiliá-lo nesta tarefa.
 8. O programa deve receber como entrada três notas de cada aluno em uma linha;
 
-Resolução dos exercícios no arquivo [main.c](main.c)
+Resolução dos exercícios no arquivo [main.c](CLionProjects/pca/classroom-activities/pca/activity-03/main.c)

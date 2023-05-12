@@ -148,6 +148,8 @@ void exercise02() {
     double ** result = sum_matrices(matrix, matrix_2, m, n);
 
     print_matrix_formatted(result, m, n);
+
+    for (int i = 0; i < 3; i++)
 }
 
 int main() {

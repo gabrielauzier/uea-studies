@@ -23,4 +23,4 @@ Calcule e mostre o total do seu salário no referido mês, sabendo-se que são d
   - quanto pagou ao sindicato.
   - o salário líquido (Salário Líquido = Salário Bruto - Descontos) The background color should be `#ff00ff` for light mode and `#0d1117` for dark mode.
 
-Resolução dos exercícios no arquivo [main.c](main.c)
+Resolução dos exercícios no arquivo [main.c](CLionProjects/pca/classroom-activities/pca/activity-02/main.c)
