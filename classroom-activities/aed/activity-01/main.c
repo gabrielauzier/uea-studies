@@ -3,7 +3,9 @@
 #include <string.h>
 
 #include "cube.h"
-#include "imaginary-numbers.h"
+#include "complex-numbers.h"
+
+#define separate() (printf("\n###################################\n"))
 
 void exercise01() {
     Cube *cube = createCube(12);
@@ -16,17 +18,15 @@ void exercise01() {
     showCube(cube);
 }
 
-void separate() {
-    printf("\n###################################\n");
-}
-
 void exercise02() {
-    ImaginaryNumber *num1 = create_imaginary_number(2, 3);
-    ImaginaryNumber *num2 = create_imaginary_number(-4, 5);
+    ComplexNumber *num1 = create_complex_number(3, 2);
+    ComplexNumber *num2 = create_complex_number(0, 4);
 
-    ImaginaryNumber *sumResult = calculate(num1, num2, sum);
-    ImaginaryNumber *subResult = calculate(num1, num2, subtract);
-    ImaginaryNumber *mutResult = calculate(num1, num2, multiply);
+
+    ComplexNumber *sumResult = calculate(num1, num2, sum);
+    ComplexNumber *subResult = calculate(num1, num2, subtract);
+    ComplexNumber *mutResult = calculate(num1, num2, multiply);
+    ComplexNumber *divResult = calculate(num1, num2, divide);
 
     show_imaginary_number(num1, "Num 1");
     show_imaginary_number(num2, "Num 2");
@@ -34,16 +34,20 @@ void exercise02() {
     show_imaginary_number(sumResult, "Sum result");
     show_imaginary_number(subResult, "Subtract result");
     show_imaginary_number(mutResult, "Multiply result");
+    show_imaginary_number(divResult, "Divide result");
 
     separate();
 
     delete_imaginary_number(num1);
     delete_imaginary_number(num2);
     delete_imaginary_number(sumResult);
+    delete_imaginary_number(subResult);
+    delete_imaginary_number(mutResult);
+    delete_imaginary_number(divResult);
 }
 
 int main() {
-//    exercise01();
+    exercise01();
     exercise02();
 
     return 0;
