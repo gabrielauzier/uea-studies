@@ -1,0 +1,1 @@
+void selection_sort_array(int *array, int length);
