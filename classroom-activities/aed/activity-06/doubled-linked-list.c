@@ -76,18 +76,22 @@ void dobll_print_list(char *title, DoubledLinkedList *src) {
 void dobll_print_list_beauty(char *title, DoubledLinkedList *src) {
     DobllElement *crawler = src->head;
 
-    show_title(title);
+    show_subtitle(title);
 
-    if (dobll_get_valid_elements(src) == 0) show_warning("Empty list");
+    if (dobll_get_valid_elements(src) == 0) show_highlight(" Empty ", MAGENTA, BLACK);
 
     while (crawler != NULL) {
-        printf("%d", crawler->node.value);
+        show_start(MAGENTA, BLACK);
+        printf(" %d ", crawler->node.value);
+        show_close();
 
         crawler = crawler->next;
 
         if (crawler != NULL)
-            printf(" => ");
+            printf(" --> ");
     }
+
+    endline();
 }
 
 void dobll_print_element(DobllElement *src) {

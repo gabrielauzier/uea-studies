@@ -18,6 +18,8 @@ void init_main_() {
 }
 
 void exercise01() {
+    show_header("Exercise 01 - Doubled Linked List", MAGENTA);
+
     DoubledLinkedList *list = dobll_create_linked_list();
     DoubledLinkedList *sorted_list = dobll_create_linked_list();
 
@@ -35,16 +37,20 @@ void exercise01() {
     dobll_insert_value(list, 6443);
     dobll_insert_value(list, 546);
 
-    dobll_print_list_beauty("original list", list);
-    dobll_print_list_beauty("sorted list", sorted_list);
+    dobll_print_list_beauty("Original List: ", list);
+    dobll_print_list_beauty("Sorted List: ", sorted_list);
 
     dobll_shift_all_elements(list, sorted_list);
 
-    dobll_print_list_beauty("sorted list", sorted_list);
-    dobll_print_list_beauty("original list", list);
+    dobll_print_list_beauty("Sorted List: ", sorted_list);
+    dobll_print_list_beauty("Original List: ", list);
+
+    endline();
 }
 
 void exercise02() {
+    show_header("Exercise 02 - Polynomials", BLUE);
+
     Polynomial *polynomial_1 = create_polynomial();
     PolynomialNode *a1 = create_polynomial_node(1, 3);
     PolynomialNode *b1 = create_polynomial_node(2, 2);
@@ -60,10 +66,16 @@ void exercise02() {
     PolynomialNode *a2 = create_polynomial_node(4, 3);
     PolynomialNode *c2 = create_polynomial_node(2, 1);
     PolynomialNode *d2 = create_polynomial_node(3, 0);
+    PolynomialNode *e2 = create_polynomial_node(2, 2);
+    PolynomialNode *f2 = create_polynomial_node(3, 7);
+    PolynomialNode *g2 = create_polynomial_node(5, 5);
 
     insert_polynomial_node(polynomial_2, a2);
     insert_polynomial_node(polynomial_2, d2);
     insert_polynomial_node(polynomial_2, c2);
+    insert_polynomial_node(polynomial_2, e2);
+    insert_polynomial_node(polynomial_2, f2);
+    insert_polynomial_node(polynomial_2, g2);
 
     print_beauty_polynomial("Polynomial 1", polynomial_1);
     print_beauty_polynomial("Polynomial 2", polynomial_2);

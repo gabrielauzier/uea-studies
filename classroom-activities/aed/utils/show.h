@@ -17,12 +17,20 @@
 #define BG_CYAN  "\x1B[46m"
 #define BG_WHITE  "\x1B[47m"
 
-#define endline() (printf("\n\n"))
+#define endline() (printf("\n"))
 #define println(s) (printf("%s\n", s))
 
-typedef enum { NORMAL, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE } TEXT_COLORS;
+typedef enum { NORMAL, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, BLACK } PROMPT_COLORS;
 
 void init_show();
+void show_text(char *string, PROMPT_COLORS color);
+void show_text_ln(char *string, PROMPT_COLORS color);
+void show_header(char *string, PROMPT_COLORS color);
+void show_highlight(char *string, PROMPT_COLORS bgColor, PROMPT_COLORS textColor);
+
+void show_start(PROMPT_COLORS bgColor, PROMPT_COLORS textColor);
+void show_close();
+
 void show_title(char *string);
 void show_subtitle(char *string);
 void show_warning(char *string);

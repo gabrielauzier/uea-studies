@@ -51,7 +51,7 @@ int get_polynomial_length(Polynomial *src) {
 
 void print_polynomial(char *title, Polynomial *src) {
     PolynomialElement *crawler = src->head;
-    show_title(title);
+    show_subtitle(title);
     while(crawler != NULL) {
         show_subtitle("PolynomialNode");
         show_attr_int("node.coefficient", crawler->node.coefficient);
@@ -63,15 +63,21 @@ void print_polynomial(char *title, Polynomial *src) {
 
 void print_beauty_polynomial(char *title, Polynomial *src) {
     PolynomialElement *crawler = src->head;
-    show_title(title);
+
+    show_text_ln(title, BLUE);
 
     while(crawler != NULL) {
-        printf("%dx^(%d)", crawler->node.coefficient, crawler->node.exp);
+        show_start(BLUE, BLACK);
+        printf(" %dx^(%d) ", crawler->node.coefficient, crawler->node.exp);
+        show_close();
 
         crawler = crawler->next;
 
         if (crawler != NULL) printf(" + ");
     }
+
+    endline();
+    endline();
 };
 
 /* sorted by exp */
