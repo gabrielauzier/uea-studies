@@ -52,41 +52,38 @@ void show() {
 //    print_green("oi, meu nome é gabs");
 }
 
-void title(char *string) {
-    print_green("\n\n\n__________________________________________________\n");
-    print_green(string);
-    print_green("\n--------------------------------------------------\n");
-
+void show_title(char *string) {
+    printf("\n%s%s %s ", BG_GREEN, FR_BLACK, string);
     _reset();
+    printf("\n");
 }
 
-void subtitle(char *string) {
-    println("");
+void show_subtitle(char *string) {
     print_magenta(string);
     println("");
 }
 
-void warn(char *string) {
+void show_warning(char *string) {
     println("");
     print_red(string);
     println("");
 }
 
-void attr_str(char *key, char *value) {
+void show_attr_str(char *key, char *value) {
     print_blue(key);
     printf(": ");
     _reset();
     println(value);
 }
 
-void attr_int(char *key, int value) {
+void show_attr_int(char *key, int value) {
     print_blue(key);
     printf(": ");
     _reset();
     printf("%d\n", value);
 }
 
-void attr_dob(char *key, double value) {
+void show_attr_dob(char *key, double value) {
     print_blue(key);
     printf(": ");
     _reset();
