@@ -13,8 +13,8 @@ DobllNode * dobll_create_node(int value);
 void dobll_init_list(DoubledLinkedList *src);
 int dobll_get_valid_elements(DoubledLinkedList *src);
 
-void dobll_print_list(DoubledLinkedList *src);
-void dobll_print_list_beauty(DoubledLinkedList *src);
+void dobll_print_list(char *title, DoubledLinkedList *src);
+void dobll_print_list_beauty(char *title, DoubledLinkedList *src);
 void dobll_print_element(DobllElement *src);
 
 DobllElement * dobll_find_one(DoubledLinkedList *src, int valueTarget);
@@ -27,3 +27,5 @@ int dobll_delete_node(DoubledLinkedList *src, int valueTarget);
 void dobll_restart_list(DoubledLinkedList *src);
 
 DobllNode * dobll_pop_node(DoubledLinkedList *src);
+void dobll_shift_element(DoubledLinkedList *src, DoubledLinkedList *dest);
+void dobll_shift_all_elements(DoubledLinkedList *src, DoubledLinkedList *dest);

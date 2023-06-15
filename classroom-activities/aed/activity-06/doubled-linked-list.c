@@ -1,4 +1,11 @@
-/* Doubled Dynamic Linked List (dobll) */
+/*
+ * Doubled Dynamic Linked List (dobll)
+ *
+ * A doubled dynamic linked list implemented as a preview of what is a stack
+ *
+ * (pop) methods are base to stacks and queues
+ *
+ * */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,10 +59,12 @@ int dobll_get_valid_elements(DoubledLinkedList *src) {
     return len;
 }
 
-void dobll_print_list(DoubledLinkedList *src) {
+void dobll_print_list(char *title, DoubledLinkedList *src) {
     DobllElement *crawler = src->head;
 
-    show_title("Doubled Linked List");
+    show_title(title);
+
+    if (dobll_get_valid_elements(src) == 0) show_warning("Empty list");
 
     while (crawler != NULL) {
         dobll_print_element(crawler);
@@ -64,10 +73,12 @@ void dobll_print_list(DoubledLinkedList *src) {
     }
 }
 
-void dobll_print_list_beauty(DoubledLinkedList *src) {
+void dobll_print_list_beauty(char *title, DoubledLinkedList *src) {
     DobllElement *crawler = src->head;
 
-    show_title("Doubled Linked List");
+    show_title(title);
+
+    if (dobll_get_valid_elements(src) == 0) show_warning("Empty list");
 
     while (crawler != NULL) {
         printf("%d", crawler->node.value);
@@ -149,7 +160,7 @@ int dobll_insert_node_sorted(DoubledLinkedList *src, DobllNode *newDobllNode) {
 
     if (previous == NULL) {
         /* insert on 1st position */
-        show_subtitle("inserting node at head");
+//        show_subtitle("inserting node at head");
         crawler->previous = NULL;
         crawler->next = src->head;
         src->head = crawler;
@@ -185,7 +196,7 @@ int dobll_insert_node_without_sort(DoubledLinkedList *src, DobllNode *newDobllNo
 
     if (previous == NULL) {
         /* insert on 1st position */
-        show_subtitle("inserting node at head");
+//        show_subtitle("inserting node at head");
         crawler->previous = NULL;
         crawler->next = src->head;
         src->head = crawler;
@@ -235,20 +246,47 @@ void dobll_restart_list(DoubledLinkedList *src) {
     src->head = NULL;
 }
 
-DobllNode dobll_pop_node(DoubledLinkedList *src, int valueTarget) {
-    DobllElement *previous;
-    DobllElement *crawler;
+DobllNode * dobll_pop_node(DoubledLinkedList *src) {
+    DobllElement *last = NULL;
+    DobllElement *crawler = src->head;
 
-    crawler = dobll_find_element_and_previous(src, valueTarget, &previous);
+    if (crawler == NULL) return NULL;
 
-    if (crawler == NULL) return 0;
-
-    if (previous == NULL) {
-        src->head = crawler->next;
-    } else {
-        previous->next = crawler->next;
+    while (crawler != NULL) {
+        last = crawler;
+        crawler = crawler->next;
     }
 
-    free(crawler);
-    return 1;
+    DobllElement *previous = last->previous;
+
+    /* we are on the head */
+    if (previous == NULL) {
+        DobllNode *result = &src->head->node;
+        dobll_init_list(src);
+        return result;
+    }
+
+    previous->next = NULL;
+
+    return (last != NULL) ? &last->node : NULL;
+}
+
+void dobll_shift_element(DoubledLinkedList *src, DoubledLinkedList *dest) {
+    DobllNode *node = dobll_pop_node(src);
+
+    dobll_insert_node_sorted(dest, node);
+}
+
+void dobll_shift_all_elements(DoubledLinkedList *src, DoubledLinkedList *dest) {
+    DobllNode *node;
+    do {
+        node = dobll_pop_node(src);
+        if (node == NULL) {
+            dobll_init_list(src);
+
+            break;
+        }
+
+        dobll_insert_node_sorted(dest, node);
+    } while (node != NULL);
 }

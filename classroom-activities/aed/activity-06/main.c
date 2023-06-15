@@ -35,8 +35,13 @@ void exercise01() {
     dobll_insert_value(list, 6443);
     dobll_insert_value(list, 546);
 
-//    dobll_print_list(list);
-    dobll_print_list_beauty(list);
+    dobll_print_list_beauty("original list", list);
+    dobll_print_list_beauty("sorted list", sorted_list);
+
+    dobll_shift_all_elements(list, sorted_list);
+
+    dobll_print_list_beauty("sorted list", sorted_list);
+    dobll_print_list_beauty("original list", list);
 }
 
 void exercise02() {
@@ -72,6 +77,6 @@ int main() {
     init_main_();
 
     exercise01();
-//    exercise02();
+    exercise02();
     return 0;
 }
