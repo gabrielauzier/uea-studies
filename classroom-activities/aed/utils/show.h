@@ -27,7 +27,8 @@ void show_text(char *string, PROMPT_COLORS color);
 void show_text_ln(char *string, PROMPT_COLORS color);
 void show_header(char *string, PROMPT_COLORS color);
 void show_highlight(char *string, PROMPT_COLORS bgColor, PROMPT_COLORS textColor);
-
+void show_highlight_ln(char *string, PROMPT_COLORS bgColor, PROMPT_COLORS textColor);
+void show_separator(int n, PROMPT_COLORS color);
 void show_start(PROMPT_COLORS bgColor, PROMPT_COLORS textColor);
 void show_close();
 

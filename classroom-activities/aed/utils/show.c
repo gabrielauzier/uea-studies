@@ -203,6 +203,25 @@ void show_highlight(char *string, PROMPT_COLORS bgColor, PROMPT_COLORS textColor
     __change_foreground(NORMAL);
 }
 
+void show_highlight_ln(char *string, PROMPT_COLORS bgColor, PROMPT_COLORS textColor) {
+    __change_background(bgColor);
+    __change_foreground(textColor);
+    printf("%s", string);
+    __change_background(NORMAL);
+    __change_foreground(NORMAL);
+    endline();
+}
+
+void show_separator(int n, PROMPT_COLORS color) {
+    endline();
+    __change_foreground(color);
+    for (int i = 0; i < n; i++) {
+        printf("_");
+    }
+    __change_foreground(NORMAL);
+    endline();
+};
+
 void show_start(PROMPT_COLORS bgColor, PROMPT_COLORS textColor) {
     __change_background(bgColor);
     __change_foreground(textColor);
