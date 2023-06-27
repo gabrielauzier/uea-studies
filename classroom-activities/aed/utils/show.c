@@ -159,6 +159,18 @@ void print_blank_spaces(int n) {
         printf(" ");
 }
 
+void show_text_align_center(char *string, int lineSize) {
+    int len = strlen(string);
+//    if (len % 2 != 0) len++;
+
+    int middle = lineSize / 2;
+    int index = middle - len / 2;
+
+    print_blank_spaces(index);
+    printf("%s", string);
+    print_blank_spaces(lineSize - index - len);
+}
+
 void show_header(char *string, PROMPT_COLORS color) {
     __change_foreground(color);
     int len = strlen(string);

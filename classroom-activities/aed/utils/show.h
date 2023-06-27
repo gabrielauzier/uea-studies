@@ -38,3 +38,5 @@ void show_warning(char *string);
 void show_attr_str(char *key, char *value);
 void show_attr_int(char *key, int value);
 void show_attr_dob(char *key, double value);
+
+void show_text_align_center(char *string, int lineSize);
