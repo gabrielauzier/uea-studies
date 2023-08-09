@@ -3,7 +3,7 @@
 
 #define array_len(x) (sizeof(x) / sizeof((x)[0]))
 
-void patients_balanced_tree() {
+void exercise_balanced_tree() {
     show_header("Example - Patients Balanced Tree", GREEN);
 
     BalancedTree *tree = btree_create_tree();
@@ -24,6 +24,6 @@ void patients_balanced_tree() {
 
 int main() {
     init_show();
-    patients_balanced_tree();
+    exercise_balanced_tree();
     return 0;
 }
