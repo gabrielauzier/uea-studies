@@ -9,7 +9,8 @@ void patients_balanced_tree() {
     BalancedTree *tree = btree_create_tree();
 
     int numArray1[] = { 10, 100, 20, 80, 40, 70 };
-    int numArray[] = { 5, 10, 20, 30, 40, 50, 60 };
+    int numArray2[] = { 5, 10, 20, 30, 40, 50, 60 };
+    int numArray[]  = { 1, 2, 3, 4, 5, 6, 7, 15, 14, 13, 12, 11, 10, 9, 8 };
 
     bool added;
 
